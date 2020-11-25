@@ -119,6 +119,7 @@ int main(int argc, char **argv)
     ORB_SLAM::MapPublisher MapPub(&World);
 
     //Initialize the Tracking Thread and launch
+//注意tracking可以访问的权限。
     ORB_SLAM::Tracking Tracker(&Vocabulary, &FramePub, &MapPub, &World, strSettingsFile);
     boost::thread trackingThread(&ORB_SLAM::Tracking::Run,&Tracker);
 
